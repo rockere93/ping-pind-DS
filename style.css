@@ -1,7 +1,7 @@
 @font-face {
     font-family: "EB Garamond";
     src: local("EB Garamond"),
-         url("/fonts/EBGaramond-Bold.ttf") format("ttf"),
+        url("/fonts/EBGaramond-Bold.ttf") format("ttf"),
 }
 
 
@@ -32,18 +32,9 @@ body {
     vertical-align: middle;
     align-items: center;
     border: 1vh solid rgb(26, 29, 25);
-  
+
 }
 
-/*
-.gamefield::before {
-    content: '';
-    border-left: 4px dashed white;
-    position: absolute;
-    left: 50%;
-    height: 1000px;
-}
-*/
 
 .player {
     width: 2vh;
@@ -73,7 +64,8 @@ body {
     left: 49vh;
 }
 
-.pointsOfPlayer, .pointsOfEnemy {
+.pointsOfPlayer,
+.pointsOfEnemy {
     font-family: "EB Garamond";
     font-size: 150px;
     position: absolute;
@@ -84,32 +76,37 @@ body {
 
 
 
-.points, .startWindow {
+.points,
+.startWindow {
     position: relative;
     flex-direction: column;
-    
+
     vertical-align: middle;
     align-items: center;
     width: 100%;
     height: 40vh;
-  
+
     z-index: 10;
     color: rgb(130, 3, 3);
-background: -moz-linear-gradient(top,  rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.68) 19%, rgba(0,0,0,0.93) 30%, rgba(0,0,0,1) 33%, rgba(0,0,0,1) 50%, rgba(0,0,0,1) 67%, rgba(0,0,0,0.95) 70%, rgba(0,0,0,0.68) 85%, rgba(0,0,0,0.05) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.68) 19%,rgba(0,0,0,0.93) 30%,rgba(0,0,0,1) 33%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 67%,rgba(0,0,0,0.95) 70%,rgba(0,0,0,0.68) 85%,rgba(0,0,0,0.05) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  rgba(0,0,0,0.05) 0%,rgba(0,0,0,0.68) 19%,rgba(0,0,0,0.93) 30%,rgba(0,0,0,1) 33%,rgba(0,0,0,1) 50%,rgba(0,0,0,1) 67%,rgba(0,0,0,0.95) 70%,rgba(0,0,0,0.68) 85%,rgba(0,0,0,0.05) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', endColorstr='#0d000000',GradientType=0 ); /* IE6-9 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.68) 19%, rgba(0, 0, 0, 0.93) 30%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 67%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.68) 85%, rgba(0, 0, 0, 0.05) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.68) 19%, rgba(0, 0, 0, 0.93) 30%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 67%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.68) 85%, rgba(0, 0, 0, 0.05) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.68) 19%, rgba(0, 0, 0, 0.93) 30%, rgba(0, 0, 0, 1) 33%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 67%, rgba(0, 0, 0, 0.95) 70%, rgba(0, 0, 0, 0.68) 85%, rgba(0, 0, 0, 0.05) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0d000000', endColorstr='#0d000000', GradientType=0);
+    /* IE6-9 */
 
 }
 
 .startWindow {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
 .points {
- display: block;
- position: relative;
+    display: block;
+    position: relative;
 }
 
 #playerPoints {
@@ -126,11 +123,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0d000000', e
     font-size: 5vh;
 }
 
-.died, .win {
-display: block;
-font-size: 6.6vh;
-text-align: center;
-margin-top: 16.5vh;
+.died,
+.win {
+    display: block;
+    font-size: 6.6vh;
+    text-align: center;
+    margin-top: 16.5vh;
 }
 
 .continueText {
