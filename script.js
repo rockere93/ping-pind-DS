@@ -36,6 +36,19 @@ let ballStepSizeLeft = (speedMoveBallLeft * fieldHeight / 10000).toFixed(1);
 let ballStepSizeTop = (speedMoveBallTop * fieldHeight / 10000 * randomDirectionBall ()).toFixed(1);
 
 
+/* __________Адаптация анимации для Firefox____________ */
+if (navigator.userAgent.indexOf("Firefox") > -1) {
+    msSpeedAnimationBall = 9;
+    sizeStepBall = 3;
+    speedMoveBallTop = getRandomIntInclusive(3 * sizeStepBall, 7 * sizeStepBall);
+    speedMoveBallLeft = 15 * sizeStepBall;
+    ballStepSizeLeft = (speedMoveBallLeft * fieldHeight / 10000).toFixed(1);
+    ballStepSizeTop = (speedMoveBallTop * fieldHeight / 10000 * randomDirectionBall ()).toFixed(1);
+};
+
+
+
+
 /* ________Адаптация под размер окна______________ */
 
 window.addEventListener ("resize", function () {
