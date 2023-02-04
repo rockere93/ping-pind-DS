@@ -334,14 +334,14 @@ function ballMoveAnimation () {
             ston1();
             enemyOnOff('on');
            
-            break
+            return setTimeout (ballMoveAnimation, 3, ballStepSizeTop, ballStepSizeLeft)
         case 'enemyHit':
             changeDirectionHit ()
             ballPositionLeft = fieldWidth - racketWidth * 3;
             ballMove (ballStepSizeTop, ballStepSizeLeft, ballPositionLeft, ballPositionTop);
             ston2 ();
             enemyOnOff('off');
-            break
+            return setTimeout (ballMoveAnimation, 3, ballStepSizeTop, ballStepSizeLeft)
         case 'playerFall':
             ston3();
             addPointSubject (pointsOfEnemy);
@@ -374,11 +374,11 @@ function ballMoveAnimation () {
                 ballStepSizeTop *= -1;
                 ballStepSizeTop = ballStepSizeTop.toFixed(1);
                 ballMove (ballStepSizeTop, ballStepSizeLeft, ballPositionLeft, ballPositionTop);
-                break
+                return setTimeout (ballMoveAnimation, 3, ballStepSizeTop, ballStepSizeLeft)
             }        
            
             else {ballMove(ballStepSizeTop, ballStepSizeLeft, ballPositionLeft, ballPositionTop)};
-                break
+                return setTimeout (ballMoveAnimation, 3, ballStepSizeTop, ballStepSizeLeft)
 
     }
 }
@@ -391,7 +391,7 @@ function gameStart (evt) {
     
     if (evt.code == "Space") {
         disabledWindowsMenu (); 
-        gameOnOff = setInterval (ballMoveAnimation, 3, ballStepSizeTop, ballStepSizeLeft);
+        gameOnOff = setTimeout (ballMoveAnimation, 3, ballStepSizeTop, ballStepSizeLeft);
         document.removeEventListener ('keydown', gameStart);
         clearInterval(clearBlinkAnimation);
     }
