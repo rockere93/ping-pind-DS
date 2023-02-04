@@ -26,6 +26,16 @@ let ballWidth = transformPxToNumber(getComputedStyle(ball).width);
 let fieldHeight = transformPxToNumber(getComputedStyle(field).height);
 let racketHeight = transformPxToNumber(getComputedStyle(player).height);
 
+
+/* ________Игровые настройки______________ */
+let msSpeedAnimationBall = 3;
+let sizeStepBall = 1;
+let speedMoveBallTop = getRandomIntInclusive(3 * sizeStepBall, 7 * sizeStepBall);
+let speedMoveBallLeft = 15 * sizeStepBall;
+let ballStepSizeLeft = (speedMoveBallLeft * fieldHeight / 10000).toFixed(1);
+let ballStepSizeTop = (speedMoveBallTop * fieldHeight / 10000 * randomDirectionBall ()).toFixed(1);
+
+
 /* ________Адаптация под размер окна______________ */
 
 window.addEventListener ("resize", function () {
@@ -37,16 +47,6 @@ window.addEventListener ("resize", function () {
     ballStepSizeLeft = speedMoveBallLeft * fieldHeight / 10000;
     ballStepSizeTop = speedMoveBallTop * fieldHeight / 10000 * randomDirectionBall ();
 })
-
-/* ________Игровые настройки______________ */
-
-let speedMoveBallTop = getRandomIntInclusive(9, 21);
-let speedMoveBallLeft = 45;
-
-let ballStepSizeLeft = (speedMoveBallLeft * fieldHeight / 10000).toFixed(1);
-let ballStepSizeTop = (speedMoveBallTop * fieldHeight / 10000 * randomDirectionBall ()).toFixed(1);
-
-
 
 
 /* ________Трансформации ______________ */
@@ -267,23 +267,23 @@ function setDirectionHit (coeffic, reflect) {
 function hitBallChangeDirection(racket, ballPositionTop) {
     switch (getPlaceContactRacketWithBall(racket, ballPositionTop)) {
         case 0:
-            setDirectionHit(21, -1);
+            setDirectionHit(7 * sizeStepBall, -1);
             break
         case 1:
-            setDirectionHit(15, -1);
+            setDirectionHit(5 * sizeStepBall, -1);
             break
         case 2:
-            setDirectionHit(9, -1);
+            setDirectionHit(3 * sizeStepBall, -1);
             break
         case 3:
-            setDirectionHit(9, 1);
+            setDirectionHit(3 * sizeStepBall, 1);
             break
         case 4:
 
-            setDirectionHit(15, 1);
+            setDirectionHit(5 * sizeStepBall, 1);
             break
         case 5:
-            setDirectionHit(21, 1);
+            setDirectionHit(7 * sizeStepBall, 1);
             break
     }
     
@@ -334,14 +334,14 @@ function ballMoveAnimation () {
             ston1();
             enemyOnOff('on');
            
-            return setTimeout (ballMoveAnimation, 9, ballStepSizeTop, ballStepSizeLeft)
+            return setTimeout (ballMoveAnimation, msSpeedAnimationBall, ballStepSizeTop, ballStepSizeLeft)
         case 'enemyHit':
             changeDirectionHit ()
             ballPositionLeft = fieldWidth - racketWidth * 3;
             ballMove (ballStepSizeTop, ballStepSizeLeft, ballPositionLeft, ballPositionTop);
             ston2 ();
             enemyOnOff('off');
-            return setTimeout (ballMoveAnimation, 9, ballStepSizeTop, ballStepSizeLeft)
+            return setTimeout (ballMoveAnimation, msSpeedAnimationBall, ballStepSizeTop, ballStepSizeLeft)
         case 'playerFall':
             ston3();
             addPointSubject (pointsOfEnemy);
@@ -374,11 +374,11 @@ function ballMoveAnimation () {
                 ballStepSizeTop *= -1;
                 ballStepSizeTop = ballStepSizeTop.toFixed(1);
                 ballMove (ballStepSizeTop, ballStepSizeLeft, ballPositionLeft, ballPositionTop);
-                return setTimeout (ballMoveAnimation, 9, ballStepSizeTop, ballStepSizeLeft)
+                return setTimeout (ballMoveAnimation, msSpeedAnimationBall, ballStepSizeTop, ballStepSizeLeft)
             }        
            
             else {ballMove(ballStepSizeTop, ballStepSizeLeft, ballPositionLeft, ballPositionTop)};
-                return setTimeout (ballMoveAnimation, 9, ballStepSizeTop, ballStepSizeLeft)
+                return setTimeout (ballMoveAnimation, msSpeedAnimationBall, ballStepSizeTop, ballStepSizeLeft)
 
     }
 }
@@ -391,7 +391,7 @@ function gameStart (evt) {
     
     if (evt.code == "Space") {
         disabledWindowsMenu (); 
-        gameOnOff = setTimeout (ballMoveAnimation, 9, ballStepSizeTop, ballStepSizeLeft);
+        gameOnOff = setTimeout (ballMoveAnimation, msSpeedAnimationBall, ballStepSizeTop, ballStepSizeLeft);
         document.removeEventListener ('keydown', gameStart);
         clearInterval(clearBlinkAnimation);
     }
